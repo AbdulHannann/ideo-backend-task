@@ -6,7 +6,7 @@ import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
 import * as dotenv from 'dotenv';
-import { comparePassword, hashPassword } from 'src/utils/common';
+import { comparePassword, hashPassword } from './../utils/common';
 import { LoginUserDto } from './dto/login-user.dto';
 import {
   IAllUserResponse,
@@ -84,7 +84,7 @@ export class UserService {
     try {
       const user = await this.userRepository.find();
       if (!user) throw new NotFoundException('User not found');
-      return { data: user, message: 'User fetched successfully' };
+      return { data: user, message: 'Users fetched successfully' };
     } catch (error) {
       return {
         data: null,
